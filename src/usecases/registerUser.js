@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const SequelizeUserRepository = require('../infra/repositories/SequelizeUserRepository'); 
 
 async function registerUser(userData) {
+  
   // Verificar se o email já está em uso
   const existingUser = await SequelizeUserRepository.findByEmail(userData.email);
   if (existingUser) {
